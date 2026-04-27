@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: #ffffff; -fx-background: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.DetallePerroAdminController">
+   <content>
+      <HBox alignment="CENTER" spacing="50.0" style="-fx-background-color: #ffffff; -fx-padding: 50;">
+         <children>
+            <VBox alignment="TOP_CENTER" spacing="15.0">
+               <children>
+                  <StackPane prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #e6e6e6; -fx-background-radius: 15;">
+                     <children>
+                        <Label fx:id="lblPlaceholder" text="Imagen del perro" textFill="#333333">
+                           <font><Font name="System" size="14.0" /></font>
+                        </Label>
+                        <ImageView fx:id="imgPrincipal" fitHeight="330.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </StackPane>
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <StackPane prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #e6e6e6; -fx-background-radius: 8;">
+                           <children>
+                              <ImageView fx:id="imgExtra1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button onAction="#onAddExtraPhoto1" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-pref-height: 60; -fx-pref-width: 60;" text="+" textFill="#666666">
+                                 <font><Font name="System Bold" size="24.0" /></font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #e6e6e6; -fx-background-radius: 8;">
+                           <children>
+                              <ImageView fx:id="imgExtra2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button onAction="#onAddExtraPhoto2" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-pref-height: 60; -fx-pref-width: 60;" text="+" textFill="#666666">
+                                 <font><Font name="System Bold" size="24.0" /></font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #e6e6e6; -fx-background-radius: 8;">
+                           <children>
+                              <ImageView fx:id="imgExtra3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button onAction="#onAddExtraPhoto3" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-pref-height: 60; -fx-pref-width: 60;" text="+" textFill="#666666">
+                                 <font><Font name="System Bold" size="24.0" /></font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox maxWidth="500.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lblNombre" text="Nombre" textFill="BLACK">
+                     <font><Font name="System Bold" size="36.0" /></font>
+                  </Label>
+                  <Label fx:id="lblSubDetalles" text="Raza • Edad • Sexo • Tamaño" textFill="#666666">
+                     <font><Font size="14.0" /></font>
+                  </Label>
+                  
+                  <VBox spacing="8.0">
+                     <VBox.margin><Insets bottom="15.0" top="15.0" /></VBox.margin>
+                     <children>
+                        <Label text="Descripción" textFill="BLACK">
+                           <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <Label fx:id="lblDescripcion" text="Descripción del perro." textFill="#555555" wrapText="true">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  <VBox spacing="10.0" style="-fx-background-color: #f9f9f9; -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10;">
+                     <children>
+                        <Label text="Gestión de Estado" textFill="BLACK">
+                           <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <ComboBox fx:id="cbEstado" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 5;" />
+                        <Button maxWidth="1.7976931348623157E308" onAction="#onGuardarEstado" style="-fx-background-color: #5cb85c; -fx-background-radius: 5; -fx-text-fill: white; -fx-padding: 10; -fx-cursor: hand;" text="Actualizar Estado">
+                           <font><Font name="System Bold" size="14.0" /></font>
+                        </Button>
+                     </children>
+                  </VBox>
+
+                  <VBox spacing="10.0">
+                     <VBox.margin><Insets top="10.0" /></VBox.margin>
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" onAction="#onCerrar" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #666666; -fx-padding: 15; -fx-cursor: hand;" text="Cerrar Ventana" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </content>
+</ScrollPane>

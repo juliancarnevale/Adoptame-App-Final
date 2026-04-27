@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="900.0" stylesheets="@estilos-admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.AdminPanelController">
+   
+   <left>
+<VBox alignment="TOP_CENTER" prefWidth="200.0" spacing="10.0" styleClass="sidebar">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/images/logi.png" />
+         </image>
+      </ImageView>
+      
+      <Label fx:id="lblTipoUsuario" text="Administrador" textFill="#666666">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      
+      <Region prefHeight="30.0" />
+
+      <Button fx:id="btnRegistrar" onAction="#showRegistrarMenu" prefWidth="180.0" styleClass="menu-button" text="Registrar Perro" />
+      <Button fx:id="btnVer" onAction="#showListaPerros" prefWidth="180.0" styleClass="menu-button" text="Ver Perros" />
+      <Button fx:id="btnEstado" prefWidth="180.0" styleClass="menu-button" text="Cambiar Estado" />
+      
+      <Region VBox.vgrow="ALWAYS" />
+      
+      <Button onAction="#cerrarSesion" prefWidth="180.0" styleClass="menu-button-logout" text="Cerrar Sesión" />
+   </children>
+</VBox>
+   </left>
+
+   <center>
+      <StackPane fx:id="contentArea" style="-fx-background-color: white;" />
+   </center>
+</BorderPane>

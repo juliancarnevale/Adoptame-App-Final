@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background: #f4f4f4; -fx-border-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.MisSolicitudesController">
+   <content>
+      <VBox alignment="TOP_CENTER" spacing="30.0" style="-fx-padding: 50;">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxWidth="900.0">
+               <children>
+                  <Label text="Mis Solicitudes de Adopción" textFill="BLACK">
+                     <font><Font name="System Bold" size="32.0" /></font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button onAction="#onVolverAlCatalogo" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 20; -fx-cursor: hand;" text="Volver al Catálogo" />
+               </children>
+            </HBox>
+            
+            <VBox fx:id="contenedorSolicitudes" maxWidth="900.0" spacing="20.0" />
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

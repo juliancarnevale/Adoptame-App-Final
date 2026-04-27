@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background: #f4f4f4; -fx-border-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.DetallePerroAdoptanteController">
+   <content>
+      <VBox alignment="TOP_CENTER" spacing="30.0">
+         <padding><Insets bottom="50.0" top="30.0" /></padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxWidth="1000.0">
+               <children>
+                  <Button onAction="#onVolver" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 20; -fx-cursor: hand;" text="← Volver al Catálogo" />
+               </children>
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="50.0" maxWidth="1000.0" style="-fx-background-color: white; -fx-padding: 40; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+               <children>
+                  <VBox alignment="TOP_CENTER" spacing="15.0">
+                     <children>
+                        <StackPane prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #e6e6e6; -fx-background-radius: 15;">
+                           <children>
+                              <Label fx:id="lblPlaceholder" text="Imagen del perro" textFill="#333333"><font><Font name="System" size="14.0" /></font></Label>
+                              <ImageView fx:id="imgPrincipal" fitHeight="330.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+                  
+                  <VBox maxWidth="500.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblNombre" text="Nombre" textFill="BLACK">
+                           <font><Font name="System Bold" size="36.0" /></font>
+                        </Label>
+                        <Label fx:id="lblSubDetalles" text="Raza • Edad • Sexo • Tamaño" textFill="#666666">
+                           <font><Font size="16.0" /></font>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <Label fx:id="lblEstado" style="-fx-background-color: #d4edda; -fx-text-fill: #155724; -fx-background-radius: 15; -fx-padding: 5 15; -fx-font-weight: bold;" text="Disponible" />
+                           </children>
+                        </HBox>
+                        
+                        <Separator />
+                        
+                        <VBox spacing="8.0">
+                           <children>
+                              <Label text="Descripción" textFill="BLACK">
+                                 <font><Font name="System Bold" size="18.0" /></font>
+                              </Label>
+                              <Label fx:id="lblDescripcion" text="Descripción del perro..." textFill="#555555" wrapText="true">
+                                 <font><Font size="14.0" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        
+                        <Region VBox.vgrow="ALWAYS" />
+                        
+                        <Button maxWidth="1.7976931348623157E308" onAction="#onSolicitarAdopcion" style="-fx-background-color: #5cb85c; -fx-background-radius: 8; -fx-text-fill: white; -fx-padding: 15; -fx-cursor: hand; -fx-font-weight: bold;" text="Solicitar Adopción">
+                           <font><Font size="16.0" /></font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

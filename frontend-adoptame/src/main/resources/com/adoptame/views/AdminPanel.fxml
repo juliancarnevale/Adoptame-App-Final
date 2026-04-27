@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.AdminPanelController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefWidth="250.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee; -fx-border-width: 0 1 0 0;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <VBox alignment="CENTER" spacing="10.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/logi.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Admin" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox spacing="10.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" onAction="#mostrarPanelPerros" style="-fx-background-color: transparent; -fx-alignment: BASELINE_LEFT; -fx-padding: 12 15; -fx-cursor: hand; -fx-text-fill: #333333;" text="🐶 Gestión de Perros">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" onAction="#mostrarPanelSolicitudes" style="-fx-background-color: transparent; -fx-alignment: BASELINE_LEFT; -fx-padding: 12 15; -fx-cursor: hand; -fx-text-fill: #333333;" text="📄 Solicitudes">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Button>
+               </children>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#onCerrarSesion" style="-fx-background-color: #ffdddd; -fx-text-fill: #cc0000; -fx-background-radius: 8; -fx-padding: 12; -fx-cursor: hand; -fx-border-color: #ffcccc; -fx-border-radius: 8;" text="Cerrar Sesión">
+               <font><Font name="System Bold" size="14.0" /></font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <StackPane>
+         <VBox fx:id="panelPerros" spacing="20.0" style="-fx-background-color: #f4f4f4;">
+            <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0" /></padding>
+            <children>
+               <VBox spacing="5.0">
+                  <children>
+                     <Label text="PANEL DE CONTROL" textFill="#333333">
+                        <font><Font name="System Bold" size="28.0" /></font>
+                     </Label>
+                     <Label text="Bienvenido, Administrador" textFill="#e63946">
+                        <font><Font name="System" size="16.0" /></font>
+                     </Label>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
+               </VBox>
+               <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                  <children>
+                     <TableView fx:id="tablaPerros" style="-fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                        <columns>
+                           <TableColumn fx:id="colPerroId" prefWidth="50.0" text="ID" />
+                           <TableColumn fx:id="colPerroNombre" prefWidth="150.0" text="Nombre" />
+                           <TableColumn fx:id="colPerroRaza" prefWidth="120.0" text="Raza" />
+                           <TableColumn fx:id="colPerroEdad" prefWidth="60.0" text="Edad" />
+                           <TableColumn fx:id="colPerroTamanio" prefWidth="100.0" text="Tamaño" />
+                           <TableColumn fx:id="colPerroSexo" prefWidth="80.0" text="Sexo" />
+                           <TableColumn fx:id="colPerroEstado" prefWidth="100.0" text="Estado" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                     </TableView>
+                     <VBox prefWidth="320.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+                        <children>
+                           <Label text="Datos del Perro" textFill="#333333"><font><Font name="System Bold" size="18.0" /></font></Label>
+                           <TextField fx:id="txtPerroNombre" promptText="Nombre" style="-fx-padding: 10;" />
+                           <TextField fx:id="txtPerroRaza" promptText="Raza" style="-fx-padding: 10;" />
+                           <TextField fx:id="txtPerroEdad" promptText="Edad (ej. 2)" style="-fx-padding: 10;" />
+                           <ComboBox fx:id="cbPerroTamanio" maxWidth="1.7976931348623157E308" promptText="Tamaño" style="-fx-padding: 5;" />
+                           <ComboBox fx:id="cbPerroSexo" maxWidth="1.7976931348623157E308" promptText="Sexo" style="-fx-padding: 5;" />
+                           <ComboBox fx:id="cbPerroEstado" maxWidth="1.7976931348623157E308" promptText="Estado" style="-fx-padding: 5;" />
+                           <TextArea fx:id="txtPerroDesc" prefHeight="100.0" promptText="Descripción..." wrapText="true" style="-fx-padding: 5;" />
+                           <VBox spacing="5.0">
+                              <children>
+                                 <Button maxWidth="1.7976931348623157E308" onAction="#onSeleccionarFoto" style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-cursor: hand;" text="📸 Seleccionar Foto" />
+                                 <Label fx:id="lblRutaFoto" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Sin foto seleccionada" textFill="#888888" wrapText="true">
+                                    <font><Font size="11.0" /></font>
+                                 </Label>
+                              </children>
+                           </VBox>
+                           <HBox spacing="10.0">
+                              <Button maxWidth="1.7976931348623157E308" onAction="#onGuardarPerro" style="-fx-background-color: #5cb85c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;" text="Guardar" HBox.hgrow="ALWAYS" />
+                              <Button maxWidth="1.7976931348623157E308" onAction="#onEliminarPerro" style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;" text="Eliminar" HBox.hgrow="ALWAYS" />
+                           </HBox>
+                           <Button maxWidth="1.7976931348623157E308" onAction="#onLimpiarFormPerro" style="-fx-background-color: #f0ad4e; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;" text="Limpiar Formulario" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+
+         <VBox fx:id="panelSolicitudes" spacing="20.0" style="-fx-background-color: #f4f4f4;" visible="false">
+            <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0" /></padding>
+            <children>
+               <VBox spacing="5.0">
+                  <children>
+                     <Label text="SOLICITUDES DE ADOPCIÓN" textFill="#333333">
+                        <font><Font name="System Bold" size="28.0" /></font>
+                     </Label>
+                     <Label text="Bienvenido, Administrador" textFill="#e63946">
+                        <font><Font name="System" size="16.0" /></font>
+                     </Label>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
+               </VBox>
+               <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                  <children>
+                     <TableView fx:id="tablaSolicitudes" style="-fx-background-radius: 10; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                        <columns>
+                           <TableColumn fx:id="colSolId" prefWidth="50.0" text="ID" />
+                           <TableColumn fx:id="colSolPerroId" prefWidth="70.0" text="ID Perro" />
+                           <TableColumn fx:id="colSolAdoptante" prefWidth="150.0" text="Adoptante" />
+                           <TableColumn fx:id="colSolCorreo" prefWidth="180.0" text="Correo" />
+                           <TableColumn fx:id="colSolTelefono" prefWidth="100.0" text="Teléfono" />
+                           <TableColumn fx:id="colSolEstado" prefWidth="120.0" text="Estado" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                     </TableView>
+                     <VBox prefWidth="320.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+                        <children>
+                           <Label text="Detalles de la Solicitud" textFill="#333333"><font><Font name="System Bold" size="18.0" /></font></Label>
+                           <Label text="Información adicional proporcionada por el adoptante:" textFill="#666666" wrapText="true">
+                              <font>
+                                 <Font size="13.0" />
+                              </font></Label>
+                           <TextArea fx:id="txtSolDetalles" editable="false" prefHeight="300.0" style="-fx-control-inner-background: #f9f9f9; -fx-padding: 5;" wrapText="true" VBox.vgrow="ALWAYS" />
+                           <Separator />
+                           <Label text="Cambiar Estado:" textFill="#333333">
+                              <font>
+                                 <Font name="System Bold" size="14.0" />
+                              </font>
+                           </Label>
+                           <HBox spacing="10.0">
+                              <children>
+                                 <Button maxWidth="1.7976931348623157E308" onAction="#onAprobarSolicitud" style="-fx-background-color: #5cb85c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-cursor: hand;" text="✅ Aprobar" HBox.hgrow="ALWAYS">
+                                    <font>
+                                       <Font name="System Bold" size="13.0" />
+                                    </font></Button>
+                                 <Button maxWidth="1.7976931348623157E308" onAction="#onRechazarSolicitud" style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12; -fx-cursor: hand;" text="❌ Rechazar" HBox.hgrow="ALWAYS">
+                                    <font>
+                                       <Font name="System Bold" size="13.0" />
+                                    </font></Button>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+      </StackPane>
+   </center>
+</BorderPane>

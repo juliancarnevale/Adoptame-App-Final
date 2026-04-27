@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.VentanaPrincipalController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="15.0">
+         <children>
+            <Label text="🐕 Encuentra a tu mejor amigo">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listaPerros" prefHeight="250.0" prefWidth="500.0" />
+            <Button onAction="#onBtnCargarClick" text="Cargar Perros" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

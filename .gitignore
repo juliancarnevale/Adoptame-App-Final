@@ -1,0 +1,15 @@
+# Maven
+target/
+*.jar
+*.war
+
+# Eclipse
+.settings/
+.project
+.classpath
+.metadata/
+bin/
+
+# Sistema
+.DS_Store
+Thumbs.db

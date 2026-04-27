@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.adoptame.app.Main",
+            "projectName": "frontend-adoptame"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendAdoptameApplication<backend-adoptame>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.adoptame.BackendAdoptameApplication",
+            "projectName": "backend-adoptame",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0"
+	style="-fx-background-color: #E0E0E0;"
+	xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.adoptame.controllers.LoginController">
+	<children>
+		<VBox alignment="CENTER" layoutX="50.0" layoutY="40.0"
+			prefWidth="300.0" spacing="20.0"
+			style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+			<children>
+                <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                      <Image url="@/images/logi.png" />
+                   </image>
+                </ImageView>
+			
+				<VBox spacing="5.0">
+					<children>
+						<Label text="Usuario" textFill="#666666" />
+						<TextField fx:id="txtUsuario" prefHeight="35.0"
+							styleClass="input-field" />
+					</children>
+				</VBox>
+
+				<VBox spacing="5.0">
+					<children>
+						<Label text="Contraseña" textFill="#666666" />
+						<PasswordField fx:id="txtPassword" prefHeight="35.0"
+							styleClass="input-field" />
+					</children>
+				</VBox>
+            
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <RadioButton text="Administrador">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tipoUsuario" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton text="Adoptante" toggleGroup="$tipoUsuario" selected="true"/>
+               </children>
+            </HBox>
+            
+            <VBox spacing="10.0" alignment="CENTER">
+               <children>
+                  <Button onAction="#onLoginClick" prefHeight="40.0" prefWidth="200.0" styleClass="login-button" text="Iniciar sesión" textFill="WHITE">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Button>
+                  <Button onAction="#onCrearCuentaClick" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #808080; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #808080; -fx-cursor: hand;" text="Crear Cuenta" />
+               </children>
+               <VBox.margin><Insets top="10.0" /></VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

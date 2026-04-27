@@ -1,0 +1,11 @@
+.status-badge-available {
+    -fx-background-color: #4CAF50; /* Green */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+}
+
+.status-badge-unavailable {
+    -fx-background-color: #f44336; /* Red */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+}

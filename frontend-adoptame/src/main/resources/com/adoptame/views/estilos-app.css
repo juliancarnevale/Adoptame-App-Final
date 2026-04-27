@@ -1,0 +1,36 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.tarjeta {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.tarjeta:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 15, 0, 0, 8);
+    -fx-translate-y: -4;
+}
+
+.button {
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);
+    -fx-translate-y: -1;
+}
+
+.text-field, .combo-box, .text-area {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.text-field:focused, .combo-box:focused, .text-area:focused {
+    -fx-border-color: #5cb85c;
+    -fx-effect: dropshadow(three-pass-box, rgba(92, 184, 92, 0.3), 5, 0, 0, 0);
+}

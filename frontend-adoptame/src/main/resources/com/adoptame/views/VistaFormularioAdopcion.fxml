@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background: #f4f4f4; -fx-border-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.FormularioAdopcionController">
+   <content>
+      <VBox alignment="TOP_CENTER" spacing="20.0">
+         <padding><Insets bottom="50.0" top="30.0" /></padding>
+         <children>
+            <VBox maxWidth="650.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-padding: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+               <children>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Solicitud de Adopción" textFill="BLACK">
+                           <font><Font name="System Bold" size="24.0" /></font>
+                        </Label>
+                        <Label fx:id="lblSubtitulo" text="Completa la información" textFill="#888888">
+                           <font><Font name="System Bold" size="13.0" /></font>
+                        </Label>
+                     </children>
+                     <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+                  </VBox>
+                  
+                  <Separator />
+
+                  <VBox spacing="5.0">
+                     <Label text="Nombre completo" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextField fx:id="txtNombre" prefHeight="35.0" />
+                  </VBox>
+
+                  <VBox spacing="5.0">
+                     <Label text="Teléfono" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextField fx:id="txtTelefono" prefHeight="35.0" promptText="Ej: 600123456" />
+                  </VBox>
+
+                  <VBox spacing="5.0">
+                     <Label text="Correo electrónico" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextField fx:id="txtCorreo" prefHeight="35.0" />
+                  </VBox>
+
+                  <VBox spacing="5.0">
+                     <Label text="Dirección completa" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextField fx:id="txtDireccion" prefHeight="35.0" promptText="Calle, número, piso, ciudad" />
+                  </VBox>
+
+                  <VBox spacing="5.0">
+                     <Label text="Experiencia con mascotas" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextArea fx:id="txtExperiencia" prefHeight="80.0" wrapText="true" />
+                  </VBox>
+
+                  <VBox spacing="5.0">
+                     <Label text="Motivo de adopción" textFill="BLACK"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     <TextArea fx:id="txtMotivo" prefHeight="80.0" wrapText="true" promptText="¿Por qué quieres adoptar a este perrito?" />
+                  </VBox>
+
+                  <CheckBox fx:id="chkTerminos" text="Acepto los términos y condiciones de adopción." textFill="BLACK">
+                     <font><Font name="System Bold" size="12.0" /></font>
+                     <VBox.margin><Insets bottom="10.0" top="10.0" /></VBox.margin>
+                  </CheckBox>
+
+                  <HBox spacing="15.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" onAction="#onCancelar" prefHeight="40.0" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8; -fx-cursor: hand;" text="Cancelar" HBox.hgrow="ALWAYS">
+                           <font><Font name="System Bold" size="13.0" /></font>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" onAction="#onEnviarSolicitud" prefHeight="40.0" style="-fx-background-color: #5cb85c; -fx-text-fill: white; -fx-border-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Enviar Solicitud" HBox.hgrow="ALWAYS">
+                           <font><Font name="System Bold" size="13.0" /></font>
+                        </Button>
+                     </children>
+                     <VBox.margin><Insets top="10.0" /></VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

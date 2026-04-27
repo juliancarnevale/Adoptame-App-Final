@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adoptame.controllers.TarjetaPerroController">
+   <children>
+      <StackPane prefHeight="200.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Label fx:id="lblPlaceholder" style="-fx-text-fill: #333333; -fx-font-weight: bold; -fx-font-size: 12px;" text="Imagen del Perro" />
+            <ImageView fx:id="imgPerro" fitHeight="180.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
+      <VBox alignment="CENTER" spacing="12.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="lblNombre" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 20px;" text="Nombre" />
+            <Label fx:id="lblDetalles" style="-fx-text-fill: #666666; -fx-font-weight: bold; -fx-font-size: 12px;" text="Raza • Edad • Tamaño" />
+            <Label fx:id="lblEstado" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15; -fx-padding: 5 20; -fx-text-fill: #555555; -fx-font-weight: bold; -fx-font-size: 12px;" text="Disponible" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+         </padding>
+      </VBox>
+      <Button maxWidth="1.7976931348623157E308" onAction="#onVerDetalles" style="-fx-background-color: #dcdcdc; -fx-background-radius: 0 0 10 10; -fx-text-fill: #555555; -fx-padding: 12; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 13px;" text="Ver detalles" />
+   </children>
+</VBox>
