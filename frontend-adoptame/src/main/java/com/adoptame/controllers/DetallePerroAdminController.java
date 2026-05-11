@@ -8,18 +8,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.File;
-import java.io.InputStream;
+
 
 public class DetallePerroAdminController {
 
-    // IDs exactos del FXML
+
     @FXML private ImageView imgPrincipal, imgExtra1, imgExtra2, imgExtra3;
     @FXML private Label lblNombre, lblSubDetalles, lblDescripcion, lblPlaceholder;
     @FXML private ComboBox<String> cbEstado;
 
     private Perro perro;
 
-    // Método que llama AdminPanelController (usamos setData)
+
     public void setData(Perro perro) {
         this.perro = perro;
         lblNombre.setText(perro.getNombre());
@@ -42,12 +42,12 @@ public class DetallePerroAdminController {
         }
 
         try {
-            // RUTA DEFINITIVA: Apuntamos directamente a tu carpeta del escritorio
+
             String rutaEscritorio = "C:\\Users\\julia\\Desktop\\Proyecto-Adoptame-Final\\frontend-adoptame\\src\\main\\resources\\images\\";
             
             File file = new File(rutaEscritorio + path.trim());
 
-            // DEBUG: Esto te dirá en la consola si el archivo existe o no en esa carpeta
+
             System.out.println("Intentando cargar: " + file.getAbsolutePath());
             System.out.println("¿El archivo existe físicamente?: " + file.exists());
 
@@ -55,7 +55,7 @@ public class DetallePerroAdminController {
                 imgPrincipal.setImage(new Image(file.toURI().toString()));
                 lblPlaceholder.setVisible(false);
             } else {
-                // Si no existe, buscamos por si acaso con otra extensión (por ejemplo, si en la BD es .png pero en la carpeta es .jpg)
+
                 String nombreSinExt = path.substring(0, path.lastIndexOf('.'));
                 File fileJpg = new File(rutaEscritorio + nombreSinExt + ".jpg");
                 File filePng = new File(rutaEscritorio + nombreSinExt + ".png");
@@ -78,7 +78,6 @@ public class DetallePerroAdminController {
         }
     }
 
-    // --- MÉTODOS DE ACCIÓN (onAction) EXACTOS DEL FXML ---
 
     @FXML
     private void onAddExtraPhoto1() {

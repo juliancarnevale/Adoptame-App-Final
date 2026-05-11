@@ -1,7 +1,7 @@
 package com.adoptame.models;
 
 public class Perro {
-    private Long id; // Siempre Long para coincidir con el ID de la base de datos
+    private Long id; 
     private String nombre;
     private String raza;
     private int edad;
@@ -16,7 +16,7 @@ public class Perro {
 
     public Perro() {}
 
-    // ... Getters y Setters que ya tienes ...
+   
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getNombre() { return nombre; }

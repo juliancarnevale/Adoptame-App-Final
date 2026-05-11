@@ -21,7 +21,7 @@ public class Usuario {
     private String tipo; 
     
     @Column(columnDefinition = "TEXT")
-    private String fotoPerfil; // NUEVO CAMPO PARA LA FOTO
+    private String fotoPerfil; 
 
     @Column(updatable = false)
     private LocalDateTime createdAt;

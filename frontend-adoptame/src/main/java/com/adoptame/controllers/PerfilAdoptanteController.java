@@ -59,7 +59,6 @@ public class PerfilAdoptanteController {
             user.setTelefono(txtTelefono.getText());
             if (rutaFotoTemporal != null) user.setFotoPerfil(rutaFotoTemporal);
 
-            // ENVIAR ACTUALIZACIÓN A LA BASE DE DATOS
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:8080/api/usuarios/" + user.getId()))
@@ -69,9 +68,8 @@ public class PerfilAdoptanteController {
 
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString()).thenAccept(response -> Platform.runLater(() -> {
                 if (response.statusCode() == 200) {
-                    SessionManager.setUser(user); // Actualizar sesión local
+                    SessionManager.setUser(user); 
                     
-                    // Refrescar el circulito de arriba a la derecha instantáneamente
                     if (InicioAdoptanteController.getInstance() != null) {
                         InicioAdoptanteController.getInstance().setupUserAvatar();
                     }

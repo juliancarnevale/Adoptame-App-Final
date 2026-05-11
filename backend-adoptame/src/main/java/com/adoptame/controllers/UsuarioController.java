@@ -24,19 +24,18 @@ public class UsuarioController {
         return repository.findAll();
     }
 
-    // ACTUALIZADO: Manejo de correos duplicados
     @PostMapping("/registro")
     public ResponseEntity<?> registrar(@RequestBody Usuario usuario) {
-        // Primero comprobamos si ya existe alguien con ese email
+
         Optional<Usuario> usuarioExistente = repository.findByEmail(usuario.getEmail());
         
         if (usuarioExistente.isPresent()) {
-            // Si existe, devolvemos un error 409 (Conflict)
+
             return ResponseEntity.status(409).body("El correo electrónico ya está registrado.");
         }
         
         try {
-            // Si no existe, lo guardamos y devolvemos 201 (Created)
+
             Usuario nuevoUsuario = repository.save(usuario);
             return ResponseEntity.status(201).body(nuevoUsuario);
         } catch (Exception e) {

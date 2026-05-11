@@ -31,7 +31,7 @@ public class CambiarEstadoController {
 
     @FXML
     public void initialize() {
-        panelAccion.setOpacity(0.5); // Desactivado visualmente al inicio
+        panelAccion.setOpacity(0.5); 
         configurarLista();
         cargarPerros();
     }
@@ -49,7 +49,7 @@ public class CambiarEstadoController {
             }
         });
 
-        // Evento al seleccionar un perro
+
         lvPerros.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 mostrarDetalleMini(newVal);
@@ -112,7 +112,7 @@ public class CambiarEstadoController {
                     Platform.runLater(() -> {
                         listaOriginal.setAll(perros);
                         
-                        // Configurar el buscador
+
                         FilteredList<Perro> filteredData = new FilteredList<>(listaOriginal, p -> true);
                         txtBuscador.textProperty().addListener((prop, old, newVal) -> {
                             filteredData.setPredicate(perro -> {

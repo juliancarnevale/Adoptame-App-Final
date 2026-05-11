@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,7 +22,6 @@ public class InicioAdoptanteController {
     @FXML private StackPane contentArea;
     @FXML private ImageView imgUserAvatar;
     
-    // Instancia estática para poder cambiar el centro desde otros controladores
     private static InicioAdoptanteController instance;
 
     public static InicioAdoptanteController getInstance() {
@@ -34,11 +32,10 @@ public class InicioAdoptanteController {
     public void initialize() {
         instance = this;
         setupUserAvatar();
-        cargarVista("/com/adoptame/views/VistaCatalogo.fxml"); // Cargar catálogo por defecto
+        cargarVista("/com/adoptame/views/VistaCatalogo.fxml"); 
     }
 
     public void setupUserAvatar() {
-        // Radio 30 para coincidir con la imagen de 60x60
         javafx.scene.shape.Circle clip = new javafx.scene.shape.Circle(30, 30, 30);
         imgUserAvatar.setClip(clip);
 
@@ -48,12 +45,10 @@ public class InicioAdoptanteController {
         }
     }
 
- // Método sobrecargado para cambiar el contenido central aceptando un Parent
     public void cargarVista(Parent vista) {
         contentArea.getChildren().setAll(vista);
     }
     
-    // Método para cambiar el contenido central
     public void cargarVista(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));

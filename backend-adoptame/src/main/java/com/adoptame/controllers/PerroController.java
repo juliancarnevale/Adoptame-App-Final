@@ -46,7 +46,7 @@ public class PerroController {
                 perro.setTamanio(perroActualizado.getTamanio());
                 perro.setDescripcion(perroActualizado.getDescripcion());
                 perro.setEstado(perroActualizado.getEstado());
-                // Actualizar también las rutas de imágenes
+                
                 perro.setImagenPath(perroActualizado.getImagenPath());
                 perro.setImagenExtra1(perroActualizado.getImagenExtra1());
                 perro.setImagenExtra2(perroActualizado.getImagenExtra2());

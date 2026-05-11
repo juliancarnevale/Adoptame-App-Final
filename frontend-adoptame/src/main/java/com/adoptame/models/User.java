@@ -24,7 +24,7 @@ public class User {
     public String getPasswordHash() { return passwordHash; }
     public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
     
-    // Para mantener compatibilidad con el código anterior
+
     public String getRole() { return tipo; }
     public void setRole(String role) { this.tipo = role; }
 }

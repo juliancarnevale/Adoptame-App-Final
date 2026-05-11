@@ -43,7 +43,6 @@ public class MisSolicitudesController {
         HttpClient client = HttpClient.newHttpClient();
         Gson gson = new Gson();
 
-        // 1. Obtener perros para mapear nombres
         HttpRequest reqPerros = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/api/perros"))
                 .build();
@@ -53,7 +52,6 @@ public class MisSolicitudesController {
                     List<Perro> perros = gson.fromJson(respPerros.body(), new TypeToken<List<Perro>>(){}.getType());
                     Map<Long, Perro> mapaPerros = perros.stream().collect(Collectors.toMap(Perro::getId, p -> p));
 
-                    // 2. Obtener solicitudes
                     HttpRequest reqSols = HttpRequest.newBuilder()
                             .uri(URI.create("http://localhost:8080/api/solicitudes"))
                             .build();

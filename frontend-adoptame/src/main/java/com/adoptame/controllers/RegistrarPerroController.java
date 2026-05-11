@@ -27,7 +27,6 @@ public class RegistrarPerroController {
 
     @FXML
     public void initialize() {
-        // Llenamos los combos con las opciones típicas
         cbSexo.setItems(FXCollections.observableArrayList("Macho", "Hembra"));
         cbTamanio.setItems(FXCollections.observableArrayList("Pequeño", "Mediano", "Grande"));
     }

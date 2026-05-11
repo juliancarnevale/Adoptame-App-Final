@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.File;
-import java.io.InputStream;
 
 public class EditarPerroController {
 
@@ -18,7 +17,6 @@ public class EditarPerroController {
 
     private Perro perro;
 
-    // Este método se llama desde el Panel de Administración al seleccionar un perro
     public void setPerro(Perro perro) {
         this.perro = perro;
         lblNombre.setText(perro.getNombre());
@@ -26,7 +24,6 @@ public class EditarPerroController {
         lblDescripcion.setText(perro.getDescripcion());
         
         if (comboEstado != null) {
-            // Asegúrate de que el combo tenga opciones si no las tiene en el FXML
             if (comboEstado.getItems().isEmpty()) {
                 comboEstado.getItems().addAll("Disponible", "Adoptado", "En proceso");
             }
@@ -43,11 +40,8 @@ public class EditarPerroController {
         }
 
         try {
-            // 1. Obtenemos la carpeta donde está abierto el proyecto (Ej: .../frontend-adoptame)
             String userDir = System.getProperty("user.dir");
             
-            // 2. Construimos la ruta hacia la carpeta de recursos de forma dinámica
-            // File.separator pone automáticamente \ en Windows o / en Mac/Linux
             String rutaRelativa = "src" + File.separator + "main" + File.separator + 
                                  "resources" + File.separator + "images" + File.separator + path;
             
@@ -57,7 +51,6 @@ public class EditarPerroController {
                 imgPrincipal.setImage(new Image(file.toURI().toString()));
                 lblPlaceholder.setVisible(false);
             } else {
-                // Plan B: Intentar cargarlo como recurso interno si el archivo está empaquetado
                 java.io.InputStream stream = getClass().getResourceAsStream("/images/" + path);
                 if (stream != null) {
                     imgPrincipal.setImage(new Image(stream));
@@ -74,7 +67,6 @@ public class EditarPerroController {
 
     @FXML
     private void onActualizarEstado() {
-        // Aquí va tu lógica para guardar el cambio de estado en la base de datos
         System.out.println("Actualizando estado de " + perro.getNombre() + " a: " + comboEstado.getValue());
     }
 

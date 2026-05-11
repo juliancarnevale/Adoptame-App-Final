@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import java.io.InputStream;
 
 import java.io.IOException;
@@ -37,33 +36,27 @@ public class ListaPerrosAdminController {
     @FXML private TableColumn<Perro, String> colRaza;
     @FXML private TableColumn<Perro, String> colEdad;
     @FXML private TableColumn<Perro, String> colEstado;
-    // IMPORTANTE: Esta columna es de tipo Void porque no muestra datos, sino botones
+    
     @FXML private TableColumn<Perro, Void> colAcciones; 
     @FXML private TextField txtBuscador;
 
-    // Listas para el buscador
     private ObservableList<Perro> listaMaestra = FXCollections.observableArrayList();
     private FilteredList<Perro> listaFiltrada;
 
     @FXML
     public void initialize() {
-        // 1. Configurar columnas de datos normales
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colRaza.setCellValueFactory(new PropertyValueFactory<>("raza"));
         colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        // 2. Configurar la columna Nombre (para que se vea azul y detecte doble clic)
         setupNombreColumn();
 
-        // 3. Configurar la columna Acciones (para añadir botones Ver/Estado)
         setupAccionesColumn();
 
-        // 4. Configurar el Buscador en tiempo real
         setupFiltroBusqueda();
 
-        // 5. Configurar el Doble clic en la fila completa
         setupDobleClickFila();
 
         cargarDatosDesdeBackend();
@@ -77,13 +70,13 @@ public class ListaPerrosAdminController {
     }
     
     private void setupNombreColumn() {
-        colNombre.setCellFactory(column -> new TableCell<Perro, String>() { // <--- Tipo explícito añadido
+        colNombre.setCellFactory(column -> new TableCell<Perro, String>() { 
             @Override
             protected void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty || item == null) {
                     setText(null);
-                    setStyle(""); // Limpiamos el estilo si está vacío
+                    setStyle(""); 
                 } else {
                     setText(item);
                     setStyle("-fx-text-fill: blue; -fx-underline: true; -fx-cursor: hand;");
@@ -126,18 +119,14 @@ public class ListaPerrosAdminController {
     }
 
     private void setupFiltroBusqueda() {
-        // Enlazamos la lista maestra a la lista filtrada
-        listaFiltrada = new FilteredList<>(listaMaestra, p -> true); // Al inicio se ve todo
+        listaFiltrada = new FilteredList<>(listaMaestra, p -> true); 
         
-        // Ponemos un "escuchador" en la caja de texto
         txtBuscador.textProperty().addListener((observable, oldValue, newValue) -> {
             listaFiltrada.setPredicate(perro -> {
-                // Si el buscador está vacío, mostramos todos
                 if (newValue == null || newValue.isEmpty()) return true;
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                // Filtramos por nombre o por raza
                 if (perro.getNombre().toLowerCase().contains(lowerCaseFilter)) return true;
                 if (perro.getRaza().toLowerCase().contains(lowerCaseFilter)) return true;
                 
@@ -145,12 +134,10 @@ public class ListaPerrosAdminController {
             });
         });
 
-        // Enlazamos la tabla a la lista filtrada
         tablaPerros.setItems(listaFiltrada);
     }
 
     private void setupDobleClickFila() {
-        // Configuramos la fábrica de filas para detectar doble clic
         tablaPerros.setRowFactory(tv -> {
             TableRow<Perro> fila = new TableRow<>();
             fila.setOnMouseClicked(event -> {
@@ -164,7 +151,6 @@ public class ListaPerrosAdminController {
         });
     }
 
-    // Método dummy para el botón Ver
     private void mostrarImagenPerro(Perro perro) {
         String nombreArchivo = perro.getImagenPath();
         if (nombreArchivo == null || nombreArchivo.isEmpty()) {
@@ -193,7 +179,6 @@ public class ListaPerrosAdminController {
             e.printStackTrace();
         }
     }
-    // Método para abrir la Ficha Detallada (Fase 2)
     private void abrirVistaDetalle(Perro perro) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/adoptame/views/DetallePerro.fxml"));
@@ -207,11 +192,8 @@ public class ListaPerrosAdminController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root, 850, 600)); 
             
-            // 1. Mostramos la ventana y el programa se para aquí hasta que se cierre
             stage.showAndWait(); 
             
-            // 2. ¡ESTA ES LA LÍNEA MÁGICA! 
-            // Cuando la ventana de detalle se cierra, obligamos a la tabla a recargar los datos
             cargarDatosDesdeBackend(); 
             System.out.println("Lista actualizada automáticamente tras cerrar el detalle.");
 
@@ -221,7 +203,6 @@ public class ListaPerrosAdminController {
     }
 
     private void cargarDatosDesdeBackend() {
-        // ... misma lógica de antes ...
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/api/perros")).build();
 
@@ -232,7 +213,6 @@ public class ListaPerrosAdminController {
                     List<Perro> lista = gson.fromJson(json, new TypeToken<List<Perro>>(){}.getType());
                     
                     Platform.runLater(() -> {
-                        // IMPORTANTE: Cargamos la información en la listaMaestra
                         listaMaestra.setAll(lista);
                     });
                 });

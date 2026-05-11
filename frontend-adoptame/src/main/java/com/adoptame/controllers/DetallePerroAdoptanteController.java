@@ -52,11 +52,9 @@ public class DetallePerroAdoptanteController {
 
     @FXML
     private void onSolicitarAdopcion() {
-        // Cargamos el formulario de adopción pasando los datos del perro seleccionado
         cambiarVista("/com/adoptame/views/VistaFormularioAdopcion.fxml", perro);
     }
 
-    // Método privado para gestionar la navegación de forma limpia y sin errores
     private void cambiarVista(String fxmlPath, Perro datosPerro) {
         InicioAdoptanteController main = InicioAdoptanteController.getInstance();
         if (main != null) {
@@ -64,7 +62,6 @@ public class DetallePerroAdoptanteController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent view = loader.load();
 
-                // Si vamos al formulario, le pasamos el perro al controlador
                 if (datosPerro != null) {
                     FormularioAdopcionController controller = loader.getController();
                     controller.setData(datosPerro);

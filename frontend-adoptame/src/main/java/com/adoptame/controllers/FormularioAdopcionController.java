@@ -26,7 +26,6 @@ public class FormularioAdopcionController {
 
     private Perro perro;
 
-    // MÉTODO CORREGIDO: Ahora se llama setData para sincronizar con DetallePerroAdoptanteController
     public void setData(Perro perro) {
         this.perro = perro;
         if (lblSubtitulo != null && perro != null) {
@@ -98,7 +97,6 @@ public class FormularioAdopcionController {
                 }));
     }
 
-    // Método de utilidad para cambiar de vista sin repetir código
     private void irAVista(String fxmlPath) {
         InicioAdoptanteController main = InicioAdoptanteController.getInstance();
         if (main != null) {

@@ -36,7 +36,6 @@ public class CatalogoController {
             Platform.runLater(() -> {
                 contenedorPerros.getChildren().clear();
                 for (Perro perro : perros) {
-                    // Solo mostrar perros disponibles
                     if ("Disponible".equalsIgnoreCase(perro.getEstado())) {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/adoptame/views/TarjetaPerro.fxml"));

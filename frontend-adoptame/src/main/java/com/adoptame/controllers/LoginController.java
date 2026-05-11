@@ -37,7 +37,6 @@ public class LoginController {
             return;
         }
 
-        // Si no pone el @, asumimos que es el correo completo por comodidad
         if (!email.contains("@")) email += "@gmail.com";
 
         Map<String, String> credenciales = new HashMap<>();

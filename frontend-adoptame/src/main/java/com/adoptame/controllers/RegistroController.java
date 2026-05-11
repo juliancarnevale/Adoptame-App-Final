@@ -80,7 +80,6 @@ public class RegistroController {
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenAccept(response -> Platform.runLater(() -> {
                     
-                    // ACTUALIZADO: Manejo de códigos de respuesta
                     if (response.statusCode() == 200 || response.statusCode() == 201) {
                         
                         User usuarioReal = new Gson().fromJson(response.body(), User.class);
@@ -92,7 +91,6 @@ public class RegistroController {
                         navegarAVentana(event, fxmlDestino, tituloDestino);
                         
                     } else if (response.statusCode() == 409) {
-                        // AQUÍ ATRAPAMOS EL CORREO DUPLICADO
                         mostrarAlerta("Usuario ya existe", "El correo electrónico ingresado ya está registrado. Por favor, utiliza otro o inicia sesión.");
                     } else {
                         mostrarAlerta("Error al registrar", "Ha ocurrido un problema. Código: " + response.statusCode());

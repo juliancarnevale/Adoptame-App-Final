@@ -17,19 +17,15 @@ public class VentanaPrincipalController {
     @FXML
     private ListView<Perro> listaPerros; 
 
-    // ESTO ES LO QUE TIENES QUE PEGAR:
     @FXML
     public void initialize() {
-        // Añadimos un "escuchador" a la lista para saber cuándo seleccionas un perro
         listaPerros.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                // Si el usuario hace clic en un perro, mostramos sus datos
                 mostrarAlertaDetalle(newValue);
             }
         });
     }
 
-    // Un pequeño método auxiliar para mostrar la ventana de detalle
     private void mostrarAlertaDetalle(Perro perro) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Ficha de Adopción");

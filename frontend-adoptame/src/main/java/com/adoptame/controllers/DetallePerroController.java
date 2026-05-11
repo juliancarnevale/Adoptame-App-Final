@@ -36,13 +36,11 @@ public class DetallePerroController {
 
     @FXML
     private void onEditarClick() {
-        // Aquí puedes llamar a la lógica de edición si fuera necesario
         System.out.println("Click en editar perro: " + perroActual.getNombre());
     }
 
     @FXML
     private void onBorrarClick() {
-        // Aquí puedes llamar a la lógica de borrado
         System.out.println("Click en borrar perro: " + perroActual.getNombre());
         ((Stage) lblNombre.getScene().getWindow()).close();
     }

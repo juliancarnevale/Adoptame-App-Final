@@ -11,11 +11,11 @@ public class Publicacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne // Muchos perros pueden ser publicados por un mismo usuario
+    @ManyToOne // Muchos perros publicados por un mismo usuario
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @OneToOne // Una publicación suele ser para un perro específico
+    @OneToOne // Una publicación para un perro
     @JoinColumn(name = "perro_id", nullable = false)
     private Perro perro;
 
@@ -33,7 +33,6 @@ public class Publicacion {
 
     public Publicacion() {}
 
-    // --- GETTERS Y SETTERS ---
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Usuario getUsuario() { return usuario; }

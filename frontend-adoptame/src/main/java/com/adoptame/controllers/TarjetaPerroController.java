@@ -30,7 +30,6 @@ public class TarjetaPerroController {
 
     private void cargarImagen(String path) {
         try {
-            // RUTA ABSOLUTA FORZADA AL ESCRITORIO
             String rutaDefinitiva = "C:\\Users\\julia\\Desktop\\Proyecto-Adoptame-Final\\frontend-adoptame\\src\\main\\resources\\images\\";
             File file = new File(rutaDefinitiva + path.trim());
 
@@ -38,7 +37,6 @@ public class TarjetaPerroController {
                 imgPerro.setImage(new Image(file.toURI().toString()));
                 lblPlaceholder.setVisible(false);
             } else {
-                // Fallback: Si no coincide la extensión, probamos .jpg y .png
                 String nombreSinExt = path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
                 File jpg = new File(rutaDefinitiva + nombreSinExt + ".jpg");
                 File png = new File(rutaDefinitiva + nombreSinExt + ".png");

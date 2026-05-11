@@ -6,11 +6,11 @@
 }
 
 .input-field:focused {
-    -fx-border-color: #F89C51; /* Color naranja del logo */
+    -fx-border-color: #F89C51; 
 }
 
 .login-button {
-    -fx-background-color: #808080; /* Gris oscuro como tu captura */
+    -fx-background-color: #808080; 
     -fx-background-radius: 20;
     -fx-cursor: hand;
 }
