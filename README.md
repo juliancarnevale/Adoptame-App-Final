@@ -65,7 +65,7 @@ El sistema contempla dos perfiles de usuario:
 
 ## 📸 Capturas de Pantalla
 
-*(Nota: Puedes añadir capturas de pantalla de la app en esta sección arrastrando las imágenes a tu repositorio de GitHub)*
+
 
 ---
 Desarrollado como Proyecto Final (DAM/DAW).
