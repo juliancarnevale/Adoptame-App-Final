@@ -1,3 +1,4 @@
+<img width="1134" height="805" alt="1  Login2" src="https://github.com/user-attachments/assets/57001dc6-a2d4-4f82-b56a-d6eed935a411" />
 # 🐾 AdoptaMe
 
 AdoptaMe es una plataforma integral (Cliente-Servidor) diseñada para facilitar y gestionar el proceso de adopción de mascotas. El sistema conecta a posibles adoptantes con protectoras de animales a través de una interfaz de escritorio intuitiva y un backend robusto.
