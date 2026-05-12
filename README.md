@@ -63,9 +63,15 @@ El sistema contempla dos perfiles de usuario:
    mvn clean compile exec:java -Dexec.mainClass="com.adoptame.app.Main"
    ```
 
+
 ## 📸 Capturas de Pantalla
 
 <img width="1134" height="805" alt="1  Login2" src="https://github.com/user-attachments/assets/57001dc6-a2d4-4f82-b56a-d6eed935a411" />
+
+<img width="1831" height="1009" alt="image" src="https://github.com/user-attachments/assets/4fe0b05c-a08c-4c8d-9636-9816181a1ea3" />
+
+<img width="1899" height="1015" alt="image" src="https://github.com/user-attachments/assets/a90e5868-bc82-421a-91ea-45681295e8c5" />
+
 
 ---
 Desarrollado como Proyecto Final (DAM/DAW).
